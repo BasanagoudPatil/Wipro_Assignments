@@ -1,0 +1,57 @@
+Assignment 5: 
+Recursive Function and Efficiency Analysis - Write a recursive function pseudocode and calculate the nth Fibonacci number and use Big O notation to analyze its efficiency. Compare this with an iterative approach and discuss the pros and cons in terms of space and time complexity.
+
+
+
+Pseudo code:
+
+•Take the nth number.
+•Check n reaches less than 1.
+•If n reaches less than 1 return n.
+•If the condition fails calculate the Fibonacci number and return that.
+
+   -return fibonacci(n-1)+fibonacci(n-2)
+
+•When calculating n number will be decreasing 1 for controlling stack overflow and calculating the Fibonacci number.
+
+
+
+
+Calculating Fibonacci number method:
+
+public class fibonacci {
+      public static void main(String[] args) {
+		
+    //Initialize a variable to store a range of the fibonacci range.	
+      int n=10;
+      
+    //call fibonacci to print nth fibonacci number.
+      System.out.println(n+"th fibonacci number: ");
+      System.out.println(fibonacci(n));
+      
+}
+
+static int fibonacci(int n)
+	{
+	//Check n reaches 1.
+		if(n<=1)
+		{
+		//if n reaches 1 return n.	
+			return n;
+		}
+	//if condition fails return fibonacci number.	
+		else
+		{
+		return fibonacci(n-1)+fibonacci(n-2);
+		}
+	}
+}
+
+
+Iterative approach:
+
+•In the iterative approach, we iterate over a loop n times to calculate the nth Fibonacci number. 
+
+•Each iteration involves constant-time operations, such as addition and array access.
+
+•Therefore, the time complexity of the iterative Fibonacci function is linear, O(n).

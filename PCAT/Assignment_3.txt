@@ -1,0 +1,78 @@
+Assignment 3:
+Function Design and Modularization - Create a document that describes the design of two modular functions: one that returns the factorial of a number, and another that calculates the nth Fibonacci number. Include pseudocode and a brief explanation of how modularity in programming helps with code reuse and organization."
+
+----------------------•Factorial of number•----------------------
+
+//finding nth factorial.
+static int factorial(int n)//initialize parametar from main method.
+     
+  {
+
+   //Initialize a variable fact to 1.
+     int fact = 1;
+
+   //Integrate i from n down to 1.
+     for(int i=n;i>0;i--)
+     {
+
+   //In each iteration, multiply fact by 1 and update fact with the result.
+	 fact=fact*i;	
+     }
+
+  //After the loop finishes, return the value of fact, which holds the factorial of n.
+   return fact;	
+  }
+
+
+
+-------------------------•Fibonacci number•-------------------------
+
+//Finding nth fibonacci number
+static int fibonacci(int n)
+	{
+           //Initialize fact1 to 0 and fact2 to 1, as these are the first two Fibonacci numbers.
+		int fact1=0;
+		int fact2=1;
+
+          //Check if n is 0 or 1. If so, return fact1 or fact2 respectively, as Fibonacci of 0 is 0 and                Fibonacci of 1 is 1.
+		if(n==0)
+		{
+			return fact1;
+		}
+		else if(n==1)
+		{
+			return fact2;
+		}
+		
+          //If n is greater than 1, enter the loop.
+		else {
+
+		for(int i=2;i<=n;i++) //Iterate i from 2 to n.
+
+		{
+
+         //Calculate fact3 as the sum of fact1 and fact2.
+			int fact3=fact1+fact2;
+        
+         //Update fact1 with the value of fact2.
+			fact1=fact2;
+
+         //Update fact2 with the value of fact3.
+			fact2=fact3;	
+		}
+	}
+
+        //After the loop finishes, return the value of fact2, which holds the nth Fibonacci number.
+
+		return fact2;
+
+   }
+
+
+
+-------•How modularity in programming helps with code reuse and organization•--------
+
+-A different factorial and fibonacci functions into modular components allows for better code reuse.
+-Each module or function encapsulates a specific functionality, making it easier to understand and maintain.
+-Modular code is easier to debug and test since each module can be tested independently. This simplifies the            process of identifying and fixcing errors. 
+
