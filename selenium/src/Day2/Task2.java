@@ -12,6 +12,7 @@ public class Task2 {
         WebDriver driver=new ChromeDriver();
         driver.get("https://google.com");
         String title=driver.getTitle();
+        
         if(title.contains("Google"))
         {
         	System.out.println("Title matches successful.");
@@ -21,26 +22,40 @@ public class Task2 {
         	System.out.println("Title Not not matches to excepted result");
         }
         WebElement search=driver.findElement(By.id("APjFqb"));
-        
-        String input="Wipro";
-    	search.sendKeys(input);
-    	search.click();
-    	boolean Displayed=search.isDisplayed();
+        boolean Displayed=search.isDisplayed();
     	boolean Enabled=search.isEnabled();
-    	if(Displayed && Enabled)
+
+        if(Displayed && Enabled)
         {
         	System.out.println("Search box is enabled.");
-  
         }
+        else 
+        {
+        	System.out.println("Text box is not enabled.");
+        }
+        String input="Wipro";
+    	search.sendKeys(input);
+    	String Text = search.getAttribute("value");
+
+    	if (Text.equals(input)) 
+    	{
+            System.out.println("Text verification successful.");
+        } 
+    	else 
+    	{
+            System.out.println("Text verification failed.");
+        }
+    	search.click();
     	Thread.sleep(4000);
     	search.clear();
-    	boolean empty=((CharSequence) search).isEmpty();
-    	if(empty)
-    	{
-    		System.out.println("Empty");
-    	}
-        
-
+    	Text=search.getAttribute("value");
+        if (Text.isEmpty()) {
+            System.out.println("Text clear successful.");
+        } 
+        else 
+        {
+            System.out.println("Text clear failed");
+        } 
+        driver.quit();
 	}
-
 }
